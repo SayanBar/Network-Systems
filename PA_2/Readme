@@ -1,0 +1,48 @@
+
+
+Programming Assignment-2
+
+Description- Making a webserver, which can accept multiple clients using TCP.
+
+
+
+The Transmission Control Protocol (TCP) is one of the main protocols of the Internet protocol suite. It originated in the initial network implementation in which it complemented the Internet Protocol (IP). Therefore, the entire suite is commonly referred to as TCP/IP. TCP provides reliable, ordered, and error-checked delivery of a stream of octets between applications running on hosts communicating by an IP network. Major Internet applications such as the World Wide Web, email, remote administration, and file transfer rely on TCP.
+
+The application has been written in C language.
+
+
+
+The folder comtains the contents of www folder which have been extracted in the parent folder.
+Index.html is in the ROOT folder to show the default web page to the client.
+ws.conf is also present in the ROOT folder to parse and extract the port the ROOT and the content types of the files requested.
+Makefile is present in the ROOT folder to compile the application. 
+
+There is a file called tcp_server.c which should be compiled and executed.
+To compile and execute the webserver- 
+1)Go to the ROOT folder.
+2)Type make to compile. It creates an executable called webserver.
+3)Type "./webserver" to start the server.
+
+
+To connect a client to the server, open a web browser and type "localhost:50000" and it should load index.html
+Click on different links to open different types of files.
+
+To connect a client to the server via telnet, use netcat.
+1)Open another terminal
+2)Type "nc localhost 50000"
+3)Type the request. For example, "GET /index.html HTTP/1.1" or "POST text.txt HTTP/1.0 Hi I am invincible."
+4)It should trigger a response from the server.
+
+
+Error codes have been implemented as well.
+400 Bad Request- It returns this error code, if the format of the request is incorrect, for example "GET /files/text1.txt HTTP1.1".
+404 Not Found- It returns this error code, if the file requested is not found.
+500 Internal Server Error- It returns this error code, if ws.conf file is missing in the ROOT directory.
+501 Not Implemented- It returns this error code, if any request other than GET and POST are requested.
+
+All these errors other than 400, can be tested both using a browser or netcat as client.
+
+Timeout of 10 seconds for each client. 
+GET and POST requests have been implemented in this version. 
+
+
