@@ -1,0 +1,54 @@
+UDP(Use Datagram Protocol) is a connectionless transmission model with a minimum of protocol mechanism.
+It has no handshaking dialogues and no mechanism of acknowledgements(ACKs). Therefore, every packet delivered
+by using UDP protocol is not guaranteed to be received. That’s why UDP is an unreliability protocol.
+Due to the simplicity, it avoids unnecessary delay in some specific application such as streaming media.
+
+There are 5 functionalities this application serves:
+
+1.get [file name]
+2.put [file name]
+3.ls
+4.delete [file name]
+5.exit
+
+Get- This function is used to receive a file from the other side which could be the server or the client if the other one is requestiong for it.
+
+Put- This function is used to send a file from client to server or server to client
+
+Ls-This function is used to display the list of files on the server's current directory
+
+Delete- This function is used to delete a particular file from the server.
+
+Exit- This function terminates the socket and exits the code both on the client and the server side.
+
+
+There are two folders and one file in tar.gz file. After extracting, it should show a client folder and a server folder along with the readme file which you are reading right now.
+
+In order to run the code,
+-Go to the client folder through the terminal. Compile using make or clean using clean.
+-Go to the server folder through another terminal and make or clean.
+-Run server code with ./server [port_no]
+-Run client code with ./client [ip] [port_no]
+-The display looks like this
+
+1.get 
+2.put 
+3.ls
+4.delete
+5.exit
+
+
+Type in any of the numbers before the respective functions as input. For example, to delete type 3 and when prompted for the file name, input the filename to delete it from the server.
+
+For running the code on the local machine,
+./client 127.0.0.1 5002
+./server 5002
+
+For running the code on the remote machine,
+ssh into the remote server using your identikey and password
+Type ifconfig to get the ip address of the remote server
+./client [ip_address_of_the_remote_server] 5003
+./server 5003
+
+
+
